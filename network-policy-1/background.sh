@@ -4,27 +4,8 @@
 kubectl create namespace restricted
 
 # Create a deployment for the target application
-kubectl apply -n restricted -f - <<EOF
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: commerce-frontend
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: commerce-frontend
-  template:
-    metadata:
-      labels:
-        app: commerce-frontend
-    spec:
-      containers:
-      - name: nginx
-        image: nginx
-        ports:
-					- containerPort: 80        
-EOF
+kubectl create deployment commerce-frontend -n restricted --replicas 3 --image nginx --port 80
 
-# Wait for the deployment to be ready
-kubectl rollout status deployment/commerce-frontend -n restricted
+sleep 5 # some long running background task
+
+touch /tmp/finished
