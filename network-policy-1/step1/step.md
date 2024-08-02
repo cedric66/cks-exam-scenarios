@@ -6,6 +6,6 @@ There is a deployment in that namespace. The network policy should define that e
 
 (Tips) Use this command to show pod labels: 
 
-    ```bash
-    kubectl get pod --show-labels
-    ```
+```bash
+kubectl get pod --show-labels
+```
