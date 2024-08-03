@@ -19,21 +19,21 @@ rules:
   verbs: ["get", "list"]
 ```
 
-* Create a RoleBinding to bind the ClusterRole to the service account:
+* Create a ClusterRoleBinding to bind the ClusterRole to the service account:
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
-kind: RoleBinding
+kind: ClusterRoleBinding
 metadata:
+  creationTimestamp: null
   name: secret-list-binding
-  namespace: secure-api
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: secret-list
 subjects:
 - kind: ServiceAccount
   name: call-api
   namespace: secure-api
-roleRef:
-  kind: ClusterRole
-  name: secret-list
-  apiGroup: rbac.authorization.k8s.io
 ```
 
 * Apply the ClusterRole and RoleBinding manifests:
