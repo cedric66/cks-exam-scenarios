@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if kubectl get networkpolicy allow-specific-pods -n restricted; then
+res=$(kubectl get networkpolicy allow-specific-pods -n restricted)
+
+if [[ -n "$res" ]]; then
   exit 0
 else
   exit 1
