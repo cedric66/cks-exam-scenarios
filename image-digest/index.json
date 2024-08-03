@@ -1,6 +1,6 @@
 {
-  "title": "Update Pod Image using Image Digest",
-  "description": "Change the image of an existing pod using image digest from Dockerhub.",
+  "title": "[Supply Chain Security] Image Digest",
+  "description": "Change the image of an existing pod using signed container image (image digest) from Dockerhub.",
   "details": {
   "intro": {
     "text": "intro.md",

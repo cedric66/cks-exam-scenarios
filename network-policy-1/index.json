@@ -1,5 +1,5 @@
 {
-  "title": "Secure Pod Communication with Network Policies",
+  "title": "[Cluster Setup] Network Policies",
   "description": "Enforce network policies for secure pod communication.",
   "details": {
   "intro": {
@@ -14,7 +14,7 @@
       "verify": "step1/verify.sh"
     },
     {
-      "title": "Test Network Policies by Deploying Pods",
+      "title": "Test Network Policies by Creating Pods",
       "text": "step2/step.md",
       "verify": "step2/verify.sh"
     }

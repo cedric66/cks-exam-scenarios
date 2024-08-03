@@ -1,5 +1,5 @@
 {
-  "title": "Secure Pod API Access",
+  "title": "[Cluster Hardening] Minimize Service Account Exposure",
   "description": "Create and secure a Pod with a service account calls the Kubernetes API.",
   "details": {
   "intro": {

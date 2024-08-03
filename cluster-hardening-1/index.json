@@ -1,5 +1,5 @@
 {
-  "title": "User Creation and Access to Cluster Context",
+  "title": "[Cluster Hardening] Provision a User with Certificate",
   "description": "Create certificate pairs for a user and add them to a Kubernetes cluster context.",
   "details": {
   "intro": {
