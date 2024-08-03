@@ -1,5 +1,5 @@
 {
-  "title": "User Access Creation and Role Binding for Cluster Hardening",
+  "title": "User Creation and Access to Cluster Context",
   "description": "Create certificate pairs for a user and add them to a Kubernetes cluster context.",
   "details": {
   "intro": {
