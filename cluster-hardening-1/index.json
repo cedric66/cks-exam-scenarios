@@ -1,0 +1,24 @@
+{
+  "title": "User Access Creation and Role Binding for Cluster Hardening",
+  "description": "Create certificate pairs for a user and add them to a Kubernetes cluster context.",
+  "details": {
+  "intro": {
+    "text": "intro.md",
+    "background": "background.sh",
+    "foreground": "foreground.sh"
+  },
+  "steps": [
+    {
+      "title": "Create Certificate Pairs for a User and Add to Cluster Context",
+      "text": "step1/step.md",
+      "verify": "step1/verify.sh"
+    }
+  ],
+  "finish": {
+    "text": "finish.md"
+  }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
+}
