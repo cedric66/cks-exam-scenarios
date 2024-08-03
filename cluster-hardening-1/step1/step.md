@@ -7,13 +7,13 @@ Tips: don't forget to approve the client certificate before adding to clutster c
 <details>
   <summary>Solution</summary>
   
-  1. Generate certificate pair for `jack` using `openssl`:
+* Generate certificate pair for `jack` using `openssl`:
 ```
 openssl genrsa -out jack.key 2048
 openssl req -new -key jack.key -out jack.csr -subj "/CN=jack/O=observer"
 ```
 
-  2. Create certificate signing request object in kubernetes using the following manifest:
+* Create certificate signing request object in kubernetes using the following manifest:
 ```
 cat <<EOF | kubectl apply -f -
 apiVersion: certificates.k8s.io/v1
@@ -29,11 +29,11 @@ spec:
 EOF
 ```
 
-  3. Approve the CSR: `kubectl certificate approve jack`
+* Approve the CSR: `kubectl certificate approve jack`
 
-  4. Retrieve the approved CSR to get the client certificate: `kubectl get csr jack -o jsonpath='{.status.certificate}' | base64 -d > jack.crt`
+* Retrieve the approved CSR to get the client certificate: `kubectl get csr jack -o jsonpath='{.status.certificate}' | base64 -d > jack.crt`
 
-  5. Add user `jack` to the cluster context: 
+* Add user `jack` to the cluster context: 
 ```
 kubectl config set-credentials jack --client-certificate=<client-cert> --client-key=<client-key> --ember-certs=true
 kubectl config set-context jill --cluster=<cluster-name> --user=jack
