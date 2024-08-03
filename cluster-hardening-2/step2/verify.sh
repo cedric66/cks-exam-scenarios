@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Get the logs of the Pod and search for secret names
-res=$(kubectl logs secret-list -n secure-api | tail -3 | grep -E "secret1|secret2|secret3")
+res=$(kubectl logs secret-list -n secure-api | grep -E "secret1|secret2|secret3")
 
 # Check if result exist
 if [[ -n "$res" ]]; then

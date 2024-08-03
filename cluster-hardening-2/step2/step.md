@@ -1,6 +1,6 @@
 # Step 2: Assign ClusterRole and RoleBinding to the Service Account
 
-Create a Cluster Role with name `secret-list` to the resources `secrets` and verb `get, list`. Bind the ClusterRole to the `api-call` service account that only allows the operation needed by the Pod. 
+Create a Cluster Role with name `secret-list` to the resources `secrets` and verb `get, list`. Bind the ClusterRole to the `call-api` service account that only allows the operation needed by the Pod. 
 
 Check the logs of the `service-list` Pod again to verify. You shall see a changes in the logs against the previous step.
 
