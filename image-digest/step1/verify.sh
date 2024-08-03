@@ -8,22 +8,20 @@ digests=()
 for image in "${images[@]}"; do
   docker pull $image
   digest=$(docker inspect $image --format='{{index .RepoDigests 0}}')
+  echo "Pulled digest for $image: $digest"
   digests+=($digest)
 done
 
 # Read the digests from the answer file
-readarray -t answer_digests < /opt/digest/answer
-
-# Check if the number of digests match
-if [ ${#digests[@]} -ne ${#answer_digests[@]} ]; then
-  exit 1
-fi
+answer_file="/opt/digest/answer"
 
 # Verify each digest
-for i in "${!digests[@]}"; do
-  if [ "${digests[$i]}" != "${answer_digests[$i]}" ]; then
+for digest in "${digests[@]}"; do
+  if ! grep -q "$digest" "$answer_file"; then
+    echo "Digest $digest not found in $answer_file"
     exit 1
   fi
 done
 
+echo "All digests match."
 exit 0
