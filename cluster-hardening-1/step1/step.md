@@ -35,8 +35,8 @@ EOF
 
 * Add user `jack` to the cluster context: 
 ```
-kubectl config set-credentials jack --client-certificate=<client-cert> --client-key=<client-key> --ember-certs=true
-kubectl config set-context jill --cluster=<cluster-name> --user=jack
+kubectl config set-credentials jack --client-certificate=<client-cert> --client-key=<client-key> --embed-certs=true
+kubectl config set-context jack --cluster=<cluster-name> --user=jack
 ```
   
 </details>
