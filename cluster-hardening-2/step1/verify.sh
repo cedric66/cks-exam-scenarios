@@ -1,9 +1,10 @@
 #!/bin/bash
 
-res=$(kubectl logs secret-list -n secure-api | tail -3 | grep -E "Failure|403")
+# Get the logs of the Pod and search for "Failure" or "403" errors
+res=$(kubectl logs secret-list -n secure-api | grep -E "Failure|403")
 
-# Check if result exist
-if $res; then
+# Check if any matches were found
+if [[ -n "$res" ]]; then
   exit 0
 else
   exit 1

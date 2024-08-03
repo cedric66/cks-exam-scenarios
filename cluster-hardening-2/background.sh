@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Create answer file
+mkdir /opt/secure-api && touch /opt/secure-api/answer
+
 # Create a namespace for testing
 kubectl create namespace secure-api
 

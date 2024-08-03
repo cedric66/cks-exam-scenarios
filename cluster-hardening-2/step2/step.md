@@ -12,10 +12,10 @@ Check the logs of the `service-list` Pod again to verify. You shall see a change
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
-  name: list-services
+  name: secret-list
 rules:
 - apiGroups: [""]
-  resources: ["services"]
+  resources: ["secrets"]
   verbs: ["get", "list"]
 ```
 
@@ -24,25 +24,25 @@ rules:
 apiVersion: rbac.authorization.k8s.io/v1
 kind: RoleBinding
 metadata:
-  name: list-services-binding
-  namespace: t23
+  name: secret-list-binding
+  namespace: secure-api
 subjects:
 - kind: ServiceAccount
-  name: api-call
-  namespace: t23
+  name: call-api
+  namespace: secure-api
 roleRef:
   kind: ClusterRole
-  name: list-services
+  name: secret-list
   apiGroup: rbac.authorization.k8s.io
 ```
 
 * Apply the ClusterRole and RoleBinding manifests:
 ```sh
-kubectl apply -f list-services-clusterrole.yaml
-kubectl apply -f list-services-rolebinding.yaml
+kubectl apply -f secret-list-clusterrole.yaml
+kubectl apply -f secret-list-rolebinding.yaml
 ```
 
-* Check the logs of the `service-list` Pod again: `kubectl logs -f secret-list -n secure-api`
+* Check the logs of the `secret-list` Pod again: `kubectl logs -f secret-list -n secure-api`
 
 After applying the correct permissions, the curl command in the Pod should list all secrets in the default namespace without authorization errors.
 </details>
