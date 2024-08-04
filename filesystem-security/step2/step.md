@@ -1,6 +1,6 @@
 # Step 2: Configure Writable Paths
 
-You should see a permission error indicating that the root filesystem is read-only. Therefore, the file `/tmp` should be writable. 
+You should see a permission error indicating that the root filesystem is read-only. Therefore, the file `/tmp/writable` should be writable. 
 
 To make this, create a `emptyDir` volume then mount it to the pod with the respective directory as mentioned above. Verify that the specified writable path is functioning correctly while the rest of the filesystem remains read-only.
 
@@ -19,7 +19,7 @@ spec:
   containers:
   ...
     volumeMounts:                   # add this
-    - mountPath: /tmp               # add this
+    - mountPath: /tmp/writable      # add this
       name: volume                  # add this
       readOnly: false               # add this
   volumes:                          # add this

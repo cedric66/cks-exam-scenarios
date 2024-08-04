@@ -5,7 +5,7 @@ Create a Pod named `secure-app` in the namespace `secure-fs` with a read-only fi
 ```sh
 while true; do
   echo "Writing to /tmp/writable";
-  echo "$(date)" > /writable-path/date.txt;
+  echo "$(date)" > /tmp/writable/date.log;
   sleep 5;
 done
 ```
@@ -26,9 +26,7 @@ spec:
   containers:
   - name: busybox
     image: busybox:1.35.0
-    command: ["/bin/sh", "-c"]
-    args:
-    - "while true; do echo "Writing to /tmp/writable"; echo "$(date)" > /writable-path/date.txt; sleep 5; done"
+    command: ['/bin/sh', '-c', 'while true; do echo "Writing to /tmp/writable"; echo "$(date)" > /tmp/writable/date.log; sleep 5; done']
     securityContext:
       readOnlyRootFilesystem: true
 ```

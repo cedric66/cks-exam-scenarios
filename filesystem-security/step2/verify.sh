@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Check the logs for successful writes to /writable-path
+# Check the logs for successful writes to writable path
 logs=$(kubectl logs secure-app -n secure-fs)
 
 if echo "$logs" | grep -q "Writing to /tmp/writable"; then
