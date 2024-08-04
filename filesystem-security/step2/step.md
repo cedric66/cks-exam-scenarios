@@ -19,7 +19,7 @@ spec:
   containers:
   ...
     volumeMounts:                   # add this
-    - mountPath: /tmp/date.log      # add this
+    - mountPath: /tmp               # add this
       name: volume                  # add this
       readOnly: false               # add this
   volumes:                          # add this
