@@ -1,8 +1,8 @@
 # Step 2: Apply the Seccomp Profile to a Pod
 
-Create a Pod named `seccomp-pod` in the namespace `seccomp`. Use `busybox:1.35.0` as the container image and add a `sleep` command to avoid pod being into completed state. Apply the seccomp profile to the Pod.
+Create a Pod named `seccomp-pod` in the namespace `seccomp`. Use `alpine/curl:3.14` as the container image. Add a command to the container to do a single `ping` to `kubernetes.io` indefinitely and add delay `5s`. Apply the seccomp profile to the Pod.
 
-Of course, you need to ensure that the Pod scheduled in the respective nodes, which is having seccomp installed there.
+Of course, you need to ensure that the Pod scheduled in the respective nodes, which is having seccomp installed there. Get the last 50 lines of related logs from `/var/log/syslog` and save to `/opt/seccomp/answer` (save the answer in the controlplane or the default terminal session)
 
 
 <details>
@@ -19,23 +19,21 @@ metadata:
   namespace: seccomp
 spec:
   nodeSelector:
-    app.kubernetes.io/name: <node-name>
+    kubernetes.io/hostname: <node-name>
   securityContext:
     seccompProfile:
       type: Localhost
       localhostProfile: syscall-restrict.json
   containers:
   - name: secure-container
-    image: busybox:1.35.0
-    command: ["sh", "-c", "sleep 1d"]
+    image: alpine/curl:3.14
+    command: ["sh", "-c", "while true; do ping -c 1 kubernetes.io; sleep 5; done"]
 ```
 
 * Apply the Pod manifest: `kubectl apply -f seccomp-pod.yaml`
 
-* Attempt to execute a restricted syscall within the container:
-```sh
-kubectl exec -n seccomp seccomp-pod -- sh -c "cat /proc/self/status | grep Seccomp"
-kubectl exec -n seccomp seccomp-pod -- sh -c "unshare -p"
-```
+* Save the last related 50 lines of log: `cat /var/log/syslog | grep "syscall" | tail -50 > /opt/seccomp/answer`
+
+* Aware that the syscall number are changing. When you run an infinite loop with sh, every iteration of the loop will execute the ping command and then sleep for 5 seconds. This activity will generate syscalls logged by seccomp.
 
 </details>

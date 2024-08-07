@@ -1,28 +1,12 @@
 # Step 1: Create a Seccomp Profile
 
-Create a seccomp profile that restricts syscalls for a container. Apply the profile to the worker node only and save as `syscall-restrict.json`
+Create a seccomp profile that audit all activities from a container. Apply the profile to the worker node and save as `seccomp-audit.json` under the seccomp profile directory `/var/lib/kubelet/seccomp`
 
 Here is the seccomp profile. SSH to the respective node.
 
 ```
 {
-  "defaultAction": "SCMP_ACT_ERRNO",
-  "syscalls": [
-    {
-      "names": [
-        "accept",
-        "bind",
-        "connect",
-        "listen",
-        "recvfrom",
-        "recvmsg",
-        "sendmsg",
-        "sendto",
-        "socket"
-      ],
-      "action": "SCMP_ACT_ALLOW"
-    }
-  ]
+    "defaultAction": "SCMP_ACT_LOG"
 }
 ```{{copy}}
 
@@ -33,33 +17,10 @@ Here is the seccomp profile. SSH to the respective node.
 
 * SSH to the worker node: `ssh node01`
 
-* Copy this seccomp profile
-```json
-{
-  "defaultAction": "SCMP_ACT_ERRNO",
-  "syscalls": [
-    {
-      "names": [
-        "accept",
-        "bind",
-        "connect",
-        "listen",
-        "recvfrom",
-        "recvmsg",
-        "sendmsg",
-        "sendto",
-        "socket"
-      ],
-      "action": "SCMP_ACT_ALLOW"
-    }
-  ]
-}
-```
-
-* Copy the profile as `syscall-restrict.json` to the Kubernetes worker node.
+* Copy the profile as `seccomp-audit.json` to the Kubernetes worker node.
 ```sh
 sudo mkdir -p /var/lib/kubelet/seccomp
-sudo cp syscall-restrict.json /var/lib/kubelet/seccomp/
+sudo cp seccomp-audit.json /var/lib/kubelet/seccomp/
 ```
 
 </details>
