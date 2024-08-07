@@ -1,6 +1,6 @@
 # Step 2: Apply the Seccomp Profile to a Pod
 
-Create a Pod named `seccomp-pod` in the namespace `seccomp-test`. Use `busybox:1.35.0` as the container image and add a `sleep` command to avoid pod being into completed state. Apply the seccomp profile to the Pod.
+Create a Pod named `seccomp-pod` in the namespace `seccomp`. Use `busybox:1.35.0` as the container image and add a `sleep` command to avoid pod being into completed state. Apply the seccomp profile to the Pod.
 
 Of course, you need to ensure that the Pod scheduled in the respective nodes, which is having seccomp installed there.
 
@@ -16,7 +16,7 @@ apiVersion: v1
 kind: Pod
 metadata:
   name: seccomp-pod
-  namespace: seccomp-test
+  namespace: seccomp
 spec:
   nodeSelector:
     app.kubernetes.io/name: <node-name>
@@ -34,8 +34,8 @@ spec:
 
 * Attempt to execute a restricted syscall within the container:
 ```sh
-kubectl exec -n seccomp-test seccomp-pod -- sh -c "cat /proc/self/status | grep Seccomp"
-kubectl exec -n seccomp-test seccomp-pod -- sh -c "unshare -p"
+kubectl exec -n seccomp seccomp-pod -- sh -c "cat /proc/self/status | grep Seccomp"
+kubectl exec -n seccomp seccomp-pod -- sh -c "unshare -p"
 ```
 
 </details>

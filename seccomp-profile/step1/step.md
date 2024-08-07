@@ -4,7 +4,7 @@ Create a seccomp profile that restricts syscalls for a container. Apply the prof
 
 Here is the seccomp profile. SSH to the respective node.
 
-```json
+```
 {
   "defaultAction": "SCMP_ACT_ERRNO",
   "syscalls": [
@@ -24,12 +24,14 @@ Here is the seccomp profile. SSH to the respective node.
     }
   ]
 }
-```
+```{{copy}}
 
 
 
 <details>
   <summary>Solution</summary>
+
+* SSH to the worker node: `ssh node01`
 
 * Copy this seccomp profile
 ```json
