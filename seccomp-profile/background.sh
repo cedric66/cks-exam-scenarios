@@ -6,3 +6,5 @@ mkdir -p /opt/seccomp && touch /opt/seccomp/answer
 kubectl create ns seccomp
 
 sleep 2
+
+touch /tmp/finished
