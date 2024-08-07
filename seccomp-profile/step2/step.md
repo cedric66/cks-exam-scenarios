@@ -23,7 +23,7 @@ spec:
   securityContext:
     seccompProfile:
       type: Localhost
-      localhostProfile: syscall-restrict.json
+      localhostProfile: seccomp-audit.json
   containers:
   - name: secure-container
     image: alpine/curl:3.14
