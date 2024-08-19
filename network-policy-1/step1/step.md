@@ -13,7 +13,7 @@ kubectl get pod --show-labels
 <details>
   <summary>Solution</summary>
 
-* Create the namespace if necessary: `kubectl create namespace restricted`
+* Create the namespace if necessary: `kubectl create namespace jumpbox`
 
 * Create a network policy:
 ```yaml
@@ -25,7 +25,7 @@ metadata:
 spec:
   podSelector:
     matchLabels:
-      tier: commerce-frontend
+      app: commerce-frontend
   policyTypes:
   - Ingress
   ingress:
