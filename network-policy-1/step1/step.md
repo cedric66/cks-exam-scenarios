@@ -32,7 +32,7 @@ spec:
   - from:
     - namespaceSelector:
         matchLabels:
-          kubernetes.io/metadata.name: restricted
+          kubernetes.io/metadata.name: jumpbox
       podSelector:
         matchLabels:
           app: jumpbox
