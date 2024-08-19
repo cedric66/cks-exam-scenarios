@@ -32,7 +32,11 @@ spec:
 
 * Apply the Pod manifest: `kubectl apply -f seccomp-pod.yaml`
 
-* Save the last related 50 lines of log: `cat /var/log/syslog | grep "syscall" | tail -50 > /opt/seccomp/answer`
+* Go to node01 where the seccomp is located: `ssh node01`
+
+* Get the last related 50 lines of logs: `cat /var/log/syslog | grep "syscall" | tail -50`
+
+* Copy and save the logs to `/opt/seccomp/answer`
 
 * Aware that the syscall number are changing. When you run an infinite loop with sh, every iteration of the loop will execute the ping command and then sleep for 5 seconds. This activity will generate syscalls logged by seccomp.
 
