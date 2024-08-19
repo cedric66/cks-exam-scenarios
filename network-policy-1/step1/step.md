@@ -9,3 +9,32 @@ There is a deployment in that namespace. The network policy should define that e
 ```bash
 kubectl get pod --show-labels
 ```
+
+<details>
+  <summary>Solution</summary>
+
+* Create the namespace if necessary: `kubectl create namespace restricted`
+
+* Create a network policy:
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: allow-specific-pods
+  namespace: restricted
+spec:
+  podSelector:
+    matchLabels:
+      tier: commerce-frontend
+  policyTypes:
+  - Ingress
+  ingress:
+  - from:
+    - namespaceSelector:
+        matchLabels:
+          kubernetes.io/metadata.name: restricted
+      podSelector:
+        matchLabels:
+          app: jumpbox
+```
+</details>
