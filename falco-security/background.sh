@@ -59,7 +59,13 @@ spec:
       containers:
       - name: monstrous-kraken
         image: ubuntu
-        command: ["sh", "-c", "cat .aws/credentials"]
+        command:
+        - sh
+        - -c
+        - |
+          mkdir -p /root/.aws
+          head -c 14 /dev/urandom | base64 > /root/.aws/credentials
+          while true; do find /root -name .aws/credentials; sleep 5; done
 EOF
 
 # Install other deployments that run normally
