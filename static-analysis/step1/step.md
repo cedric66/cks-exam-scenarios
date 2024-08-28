@@ -98,7 +98,7 @@ List of insecure manifests:
     CMD ["bash"]
     ```
 
-- `/opt/static-analysis/Dockerfile1`
+- `/opt/static-analysis/Dockerfile2`
     ```
     # INSECURE: Using an outdated and unsupported base image increases security risks.
     FROM ubuntu:14.04
