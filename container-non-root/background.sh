@@ -11,9 +11,8 @@ metadata:
   namespace: limited
 spec:
   containers:
-  - name: busybox
-    image: busybox:1.34
-    command: ["sh", "-c", "sleep 3600"]
+  - image: bitnami/nginx
+    name: nginx
 EOF
 
 cat <<EOF | kubectl apply -f -
