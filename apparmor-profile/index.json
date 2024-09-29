@@ -1,0 +1,30 @@
+{
+    "title": "[System Hardening] AppArmor",
+    "description": "Use AppArmor to enforce security policies on containers in a kubernetes environment.",
+    "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh",
+      "foreground": "foreground.sh"
+    },
+    "steps": [
+      {
+        "title": "Deny All Write Operations in a Container",
+        "text": "step1/step.md",
+        "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Prevent chmod and chown Commands in a Container",
+        "text": "step2/step.md",
+        "verify": "step2/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
+    }
+    },
+    "backend": {
+      "imageid": "kubernetes-kubeadm-1node"
+    }
+  }
+  
