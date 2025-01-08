@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Verify that the Pod's write operation is denied
-logs=$(kubectl exec -n apparmor pods/deny-write-pod -- touch /test.txt)
+logs=$(kubectl exec -n apparmor pods/deny-write-pod -- touch /test.txt 2>)
 
 if [[ "$logs" == *"permission denied"* ]]; then
   exit 0

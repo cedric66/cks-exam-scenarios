@@ -22,7 +22,7 @@ Create a pod with these details:
 * image: `busybox`
 * command: `sleep 1d`
 
-You will need to apply the profile to a Pod and verify that the container cannot perform any write operations. Apply the necessary annotations for this. After deployed, test it to the container and do some writable actions.
+You will need to apply the profile to a Pod and verify that the container cannot perform any write operations. Apply the necessary securityContext for this. After deployed, test it in the container and do some writa operations.
 
 
 <details>
@@ -56,9 +56,11 @@ You will need to apply the profile to a Pod and verify that the container cannot
     metadata:
       name: deny-write-pod
       namespace: apparmor
-      annotations:
-        container.apparmor.security.beta.kubernetes.io/deny-write-container: localhost/deny-write-profile
     spec:
+      securityContext:
+        appArmorProfile:
+          type: Localhost
+          localhostProfile: deny-write-profile
       containers:
       - name: deny-write-container
         image: busybox
