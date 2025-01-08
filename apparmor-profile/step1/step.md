@@ -42,12 +42,12 @@ You will need to apply the profile to a Pod and verify that the container cannot
       deny /** w,
     }
     EOF
-    ```
+    ```{{copy}}
 2. **Load the apparmor profile**:
 
     ```bash
     sudo apparmor_parser -r /etc/apparmor.d/deny-write-profile
-    ```
+    ```{{copy}}
 
 3. **Create the Pod Manifest**:
     ```yaml
