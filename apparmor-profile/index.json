@@ -4,8 +4,7 @@
     "details": {
     "intro": {
       "text": "intro.md",
-      "background": "background.sh",
-      "foreground": "foreground.sh"
+      "background": "background.sh"
     },
     "steps": [
       {
@@ -15,8 +14,13 @@
       },
       {
         "title": "Prevent chmod and chown Commands in a Container",
-        "text": "step2/step.md",
-        "verify": "step2/verify.sh"
+        "text": "step2/step.md"
+      },
+      {
+        "title": "Restrict Network Access in a Container",
+        "text": "step3/step.md",
+        "verify": "step3/verify.sh",
+        "instructions": "step3/instructions.md"
       }
     ],
     "finish": {
@@ -27,4 +31,3 @@
       "imageid": "kubernetes-kubeadm-1node"
     }
   }
-  
