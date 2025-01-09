@@ -1,10 +1,22 @@
 {
-  "title": "Sysctl Pod Profile",
+  "title": "[System Hardening] Sysctl Pod Profile",
   "description": "Learn how to configure and manage sysctl parameters in Kubernetes pods",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
+    },  
   "steps": [
     {
       "title": "Create Pod with Sysctl Parameters",
       "description": "Create a pod with custom sysctl settings"
     }
-  ]
+  ],
+  "finish": {
+    "text": "finish.md"
+  }
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
 }
