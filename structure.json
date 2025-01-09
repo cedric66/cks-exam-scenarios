@@ -1,28 +1,22 @@
 {
     "items": [
         {
-          "path": "cluster-setup/",
-          "description": "15% weight of CKS Exam"
+          "path": "cluster-setup"
         },
         {
-          "path": "cluster-hardening/",
-          "description": "15% weight of CKS Exam"
+          "path": "cluster-hardening"
         },
         {
-          "path": "system-hardening",
-          "description": "10% weight of CKS Exam"
+          "path": "system-hardening"
         },
         {
-          "path": "microservices-vulns",
-          "description": "20% weight of CKS Exam"
+          "path": "microservices-vulns"
         },
         {
-          "path": "supply-chain-security",
-          "description": "20% weight of CKS Exam"
+          "path": "supply-chain-security"
         },
         {
-          "path": "monitoring-logging-runtime-sec",
-          "description": "20% weight of CKS Exam"
+          "path": "monitoring-logging-runtime-sec"
         }
     ]
 }
