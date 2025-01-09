@@ -1,36 +1,28 @@
 {
-    "title": "Cerified Kubernetes Security Specialist (CKS) - course",
-    "description": "This is the description of course TWO",
     "items": [
         {
-          "path": "cluster-setup",
-          "title": "New title for scenario TWO",
+          "path": "cluster-setup/",
           "description": "15% weight of CKS Exam"
         },
         {
-          "path": "cluster-hardening",
-          "title": "New title for scenario TWO",
+          "path": "cluster-hardening/",
           "description": "15% weight of CKS Exam"
         },
         {
           "path": "system-hardening",
-          "title": "New title for scenario TWO",
           "description": "10% weight of CKS Exam"
         },
         {
           "path": "microservices-vulns",
-          "title": "New title for scenario TWO",
           "description": "20% weight of CKS Exam"
         },
         {
           "path": "supply-chain-security",
-          "title": "New title for scenario TWO",
           "description": "20% weight of CKS Exam"
         },
         {
           "path": "monitoring-logging-runtime-sec",
-          "title": "New title for scenario TWO",
           "description": "20% weight of CKS Exam"
         }
     ]
-  }
+}
