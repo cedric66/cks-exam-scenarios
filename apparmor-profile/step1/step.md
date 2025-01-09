@@ -22,7 +22,7 @@ Create a pod with these details:
 * image: `busybox`
 * command: `sleep 1d`
 
-You will need to apply the profile to a Pod and verify that the container cannot perform any write operations. Apply the necessary securityContext for this. After deployed, test it in the container and do some writa operations.
+You will need to apply the apparmor profile to the Pod and verify that the container cannot perform any write operations.
 
 
 <details>
@@ -50,7 +50,8 @@ You will need to apply the profile to a Pod and verify that the container cannot
     ```{{copy}}
 
 3. **Create the Pod Manifest**:
-    ```yaml
+    ```bash
+    kubectl apply -f - <<EOF
     apiVersion: v1
     kind: Pod
     metadata:
@@ -65,10 +66,12 @@ You will need to apply the profile to a Pod and verify that the container cannot
       - name: deny-write-container
         image: busybox
         command: ["sh", "-c", "sleep 1d"]
+    EOF
+    ```{{COPY}}
 
 4. **Test the apparmor profile**:
     ```bash
-    kubectl exec -n apparmor pods/deny-write-pod -- touch /test.txt
+    kubectl exec -n apparmor deny-write-pod -- touch /test.txt
     ```{{copy}}
 
 </details>

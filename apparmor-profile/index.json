@@ -21,6 +21,11 @@
         "text": "step3/step.md",
         "verify": "step3/verify.sh",
         "instructions": "step3/instructions.md"
+      },
+      {
+        "title": "Restrict Linux Capabilities",
+        "text": "step4/step.md",
+        "verify": "step4/verify.sh"
       }
     ],
     "finish": {
