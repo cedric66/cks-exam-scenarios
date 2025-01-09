@@ -9,7 +9,8 @@
   "steps": [
     {
       "title": "Create Pod with Sysctl Parameters",
-      "description": "Create a pod with custom sysctl settings"
+      "text": "step1/step.md",
+      "verify": "step1/verify.sh"
     }
   ],
   "finish": {
