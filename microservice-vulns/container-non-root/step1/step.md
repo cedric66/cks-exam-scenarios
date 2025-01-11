@@ -1,6 +1,8 @@
 # Step 1: Run a Pod with a Non-Root User
 
-There are a couple of pod running in the namespace `limited`. Your task is to configure both of the container from each pod to run as a non-root user. After applying the changes, you must find that not all images could be ran using non-root user. Write the pod name that failed in the `/opt/non-root/answer`
+There are a couple of pod running in the namespace `limited`. Your task is to configure both of the container from each pod to run as a non-root user. 
+
+After applying the changes, you must find that not all images could be ran using non-root user. Write the pod name that failed in the `/opt/non-root/answer`
 
 <details>
   <summary>Solution</summary>
@@ -14,9 +16,8 @@ There are a couple of pod running in the namespace `limited`. Your task is to co
       namespace: limited
     spec:
       containers:
-      - name: busybox
-        image: busybox:1.34
-        command: ["sh", "-c", "sleep 3600"]
+      - name: nginx
+        image: bitnami/nginx
         securityContext:
           runAsNonRoot: true      # Add this line
     ```
