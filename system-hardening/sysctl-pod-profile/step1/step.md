@@ -3,7 +3,6 @@
 ## Objective
 Create a new Pod named `sysctl-pod` with the image `nginx:1.23.1`. Set the sysctl parameters:
 - `net.core.somaxconn` to 1024
-- `debug.iotrace` to 1
 
 After creating the pod, check its status.
 
@@ -13,7 +12,6 @@ After creating the pod, check its status.
 - Image: nginx:1.23.1
 - Sysctl Parameters:
   - net.core.somaxconn: 1024
-  - debug.iotrace: 1
 
 ## Solution
 <details>
@@ -42,13 +40,13 @@ spec:
 
 ```bash
 kubectl apply -f sysctl-pod.yaml
-```
+```{{EXEC}}
 
 3. Verify the pod status:
 
 ```bash
 kubectl get pod sysctl-pod
-```
+```{{EXEC}}
 
 4. Check the sysctl parameters inside the pod:
 
