@@ -15,7 +15,7 @@
           "description": "10% weight of CKS Exam"
         },
         {
-          "path": "microservices-vulns",
+          "path": "microservice-vulns",
           "description": "20% weight of CKS Exam"
         },
         {
