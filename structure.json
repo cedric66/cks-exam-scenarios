@@ -16,6 +16,7 @@
         },
         {
           "path": "microservice-vulns",
+          "title": "Minimize Microservice Vulnerabilities",
           "description": "20% weight of CKS Exam"
         },
         {
