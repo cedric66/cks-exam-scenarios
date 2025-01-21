@@ -8,11 +8,16 @@ if [ ! -f "$PROFILE_PATH" ]; then
   exit 1
 fi
 
-# Check for network permissions
-if ! grep -q "network inet," "$PROFILE_PATH" || ! grep -q "network inet6," "$PROFILE_PATH"; then
-  echo "Network permissions not found in AppArmor profile"
+# Check for capability restrictions
+if ! grep -q "deny capability," "$PROFILE_PATH"; then
+  echo "Capability restrictions not found in AppArmor profile"
   exit 1
 fi
 
-echo "Network permissions are properly configured"
+# Check if specific capabilities are allowed (optional)
+if grep -q "capability [^,]*," "$PROFILE_PATH"; then
+  echo "Specific capabilities are allowed"
+fi
+
+echo "Capability restrictions are properly configured"
 exit 0

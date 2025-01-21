@@ -1,83 +1,35 @@
-# Objective 3: Deny all Network Access
+# Step 4: Restrict Linux Capabilities
 
-Create an AppArmor profile that controls network access and apply it to a Kubernetes pod with the following configuration:
+In this step, we'll configure capability restrictions in our AppArmor profile to limit what privileged operations the container can perform.
 
-```
-#include <tunables/global>
+1. Edit your AppArmor profile (usually located in /etc/apparmor.d/)
+2. Add the following capability restrictions:
 
-profile restrict-network {
-   #include <abstractions/base>
-
-   # Block IPv4 and IPv6 networking
-   deny network inet,
-   deny network inet6,
-
-   # Block raw socket access
-   deny network raw,
-}
+```bash
+deny capability,
 ```
 
-Create a pod with these details:
-- Pod name: `restrict-network-pod`
-- Namespace: `apparmor`
-- Image: `busybox`
-- Command: `sleep 1d`
+3. Optionally, you can allow specific capabilities while denying others:
 
-You will need to apply the apparmor profile to the pod and verify that the container has no network connectivty.
+```bash
+capability net_bind_service,
+deny capability,
+```
 
-<details>
-  <summary>Solution</summary>
+4. Common capabilities to consider:
+   - `net_bind_service`: Bind to privileged ports (<1024)
+   - `sys_admin`: System administration operations
+   - `sys_module`: Load/unload kernel modules
+   - `dac_override`: Bypass file permission checks
 
-1. **Create the AppArmor profile**:
+5. Save the profile and reload AppArmor:
+```bash
+sudo apparmor_parser -r /etc/apparmor.d/your_profile
+```
 
-   ```bash
-   sudo tee /etc/apparmor.d/restrict-network-profile <<EOF
-   #include <tunables/global>
+6. Verify the profile is loaded:
+```bash
+sudo aa-status
+```
 
-   profile restrict-network {
-      #include <abstractions/base>
-
-      # Block IPv4 and IPv6 networking
-      deny network inet,
-      deny network inet6,
-
-      # Block raw socket access
-      deny network raw,
-   }
-   EOF
-   ```{{COPY}}
-
-2. **Load the AppArmor profile**:
-
-   ```bash
-   sudo apparmor_parser -r /etc/apparmor.d/restrict-network-profile
-   ```{{COPY}}
-
-3. **Create a Kubernetes pod with the profile**:
-
-   ```bash
-   kubectl apply -f - <<EOF
-   apiVersion: v1
-   kind: Pod
-   metadata:
-     name: restrict-network-pod
-     namespace: apparmor
-   spec:
-      securityContext:
-        appArmorProfile:
-          type: Localhost
-          localhostProfile: restrict-network
-      containers:
-      - name: restrict-network-container
-         image: busybox
-         command: ["sh", "-c", "sleep 1d"]
-   EOF
-   ```{{COPY}}
-
-4. **Test network access**:
-
-   ```bash
-   kubectl exec -n apparmor restrict-network-pod -- ping -c 1 google.com
-   ```{{COPY}}
-
-</details>
+This configuration provides granular control over what privileged operations the container can perform.

@@ -1,5 +1,5 @@
 {
-    "title": "[System Hardening] Seccomp",
+    "title": "Seccomp",
     "description": "Configure a seccomp profile to audits system calls in a Kubernetes environment.",
     "details": {
     "intro": {
@@ -24,7 +24,7 @@
     }
     },
     "backend": {
-      "imageid": "kubernetes-kubeadm-2nodes"
+      "imageid": "kubernetes-kubeadm-1nodes"
     }
   }
   

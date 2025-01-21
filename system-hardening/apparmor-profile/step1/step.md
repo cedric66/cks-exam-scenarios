@@ -30,48 +30,51 @@ You will need to apply the apparmor profile to the Pod and verify that the conta
 
 1. **Apply the apparmor profile**:
 
-    ```bash
-    sudo tee /etc/apparmor.d/deny-write-profile <<EOF
-    #include <tunables/global>
+```bash
+sudo tee /etc/apparmor.d/deny-write-profile <<EOF
+#include <tunables/global>
 
-    profile deny-write-profile flags=(attach_disconnected){
-      #include <abstractions/base>
+profile deny-write-profile flags=(attach_disconnected){
+  #include <abstractions/base>
 
-      # Deny all write operations
-      file,
-      deny /** w,
-    }
-    EOF
-    ```{{copy}}
+  # Deny all write operations
+  file,
+  deny /** w,
+}
+EOF
+```{{exec}}
+
 2. **Load the apparmor profile**:
 
-    ```bash
-    sudo apparmor_parser -r /etc/apparmor.d/deny-write-profile
-    ```{{copy}}
+```bash
+sudo apparmor_parser -r /etc/apparmor.d/deny-write-profile
+```{{exec}}
 
 3. **Create the Pod Manifest**:
-    ```bash
-    kubectl apply -f - <<EOF
-    apiVersion: v1
-    kind: Pod
-    metadata:
-      name: deny-write-pod
-      namespace: apparmor
-    spec:
-      securityContext:
-        appArmorProfile:
-          type: Localhost
-          localhostProfile: deny-write-profile
-      containers:
-      - name: deny-write-container
-        image: busybox
-        command: ["sh", "-c", "sleep 1d"]
-    EOF
-    ```{{COPY}}
+
+```bash
+kubectl apply -f - <<EOF
+apiVersion: v1
+kind: Pod
+metadata:
+  name: deny-write-pod
+  namespace: apparmor
+spec:
+  securityContext:
+    appArmorProfile:
+      type: Localhost
+      localhostProfile: deny-write-profile
+  containers:
+  - name: deny-write-container
+    image: busybox
+    command: ["sh", "-c", "sleep 1d"]
+EOF
+```{{exec}}
 
 4. **Test the apparmor profile**:
-    ```bash
-    kubectl exec -n apparmor deny-write-pod -- touch /test.txt
-    ```{{copy}}
+
+```bash
+kubectl exec -n apparmor deny-write-pod -- touch /test.txt
+```{{exec}}
 
 </details>

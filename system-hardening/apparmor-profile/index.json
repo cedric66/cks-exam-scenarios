@@ -1,5 +1,5 @@
 {
-    "title": "[System Hardening] AppArmor",
+    "title": "AppArmor",
     "description": "Use AppArmor to enforce security policies on containers in a kubernetes environment.",
     "details": {
     "intro": {
@@ -13,19 +13,14 @@
         "verify": "step1/verify.sh"
       },
       {
-        "title": "Prevent chmod and chown Commands in a Container",
-        "text": "step2/step.md"
-      },
-      {
         "title": "Restrict Network Access in a Container",
-        "text": "step3/step.md",
-        "verify": "step3/verify.sh",
-        "instructions": "step3/instructions.md"
+        "text": "step2/step.md",
+        "verify": "step2/verify.sh"
       },
       {
         "title": "Restrict Linux Capabilities",
-        "text": "step4/step.md",
-        "verify": "step4/verify.sh"
+        "text": "step3/step.md",
+        "verify": "step3/verify.sh"
       }
     ],
     "finish": {

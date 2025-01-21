@@ -19,7 +19,8 @@ After creating the pod, check its status.
 
 1. Create a pod YAML file with the required sysctl parameters:
 
-```yaml
+```bash
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
@@ -34,23 +35,25 @@ spec:
   containers:
   - name: nginx
     image: nginx:1.23.1
-```
+EOF
+```{{exec}}
 
 2. Apply the pod configuration:
 
 ```bash
 kubectl apply -f sysctl-pod.yaml
-```{{EXEC}}
+```{{exec}}
 
 3. Verify the pod status:
 
 ```bash
 kubectl get pod sysctl-pod
-```{{EXEC}}
+```{{exec}}
 
 4. Check the sysctl parameters inside the pod:
 
 ```bash
 kubectl exec sysctl-pod -- sysctl net.core.somaxconn debug.iotrace
-```
+```{{exec}}
+
 </details>
