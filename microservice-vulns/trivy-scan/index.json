@@ -1,20 +1,20 @@
 {
-    "title": "Trivy Vulnerability Scanning",
-    "description": "Identify and analyze container image vulnerabilities using Trivy scanner",
-    "details": {
-        "intro": {
-            "text": "intro.md"
-        },
-        "steps": [
-          {
-            "title": "Scan container image with Trivy",
-            "text": "step1/step.md",
-            "verify": "step1/verify.sh"
-          }
-        ]
+  "title": "[Minimizing Microservice Vulnerabilities] Trivy Vulnerability Scanning",
+  "description": "Identify and analyze container image vulnerabilities using Trivy scanner",
+  "details": {
+    "intro": {
+      "text": "intro.md",
+      "background": "background.sh"
     },
-    "backend": {
-        "imageid": "ubuntu",
-        "setup_script": "background.sh"
-    }
+    "steps": [
+      {
+        "title": "Scan container image with Trivy",
+        "text": "step1/step.md",
+        "verify": "step1/verify.sh"
+      }
+    ]
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
+  }
 }
