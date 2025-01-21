@@ -6,6 +6,13 @@
             "text": "intro.md"
         }
     },
+    "steps": [
+      {
+        "title": "Scan container image with Trivy",
+        "text": "step1/step.md",
+        "verify": "step1/verify.sh"
+      }
+    ],
     "backend": {
         "imageid": "ubuntu",
         "setup_script": "background.sh"
