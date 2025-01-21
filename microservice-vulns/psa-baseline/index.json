@@ -1,6 +1,6 @@
 {
   "title": "[Minimize Microservice Vulnerabilities] Pod Security Admission Baseline Enforcement",
-  "description": "This scenario demonstrates how to enforce baseline Pod Security Admission (PSA) controls in Kubernetes by configuring namespace labels and verifying pod creation restrictions.",
+  "description": "Enforce baseline Pod Security Admission (PSA) controls.",
   "details": {
   "intro": {
     "text": "intro.md"

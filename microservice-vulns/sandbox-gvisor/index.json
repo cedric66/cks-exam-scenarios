@@ -1,5 +1,5 @@
 {
-    "title": "[Minimize Microservice Vulnerabilities] Sandbox Container gVisor",
+    "title": "Sandbox Container gVisor",
     "description": "Install and use gVisor to enhance isolation and minimize vulnerabilities in a Kubernetes environment.",
     "details": {
     "intro": {
