@@ -1,5 +1,5 @@
 {
-  "title": "[Minimize Microservice Vulnerabilities] Pod Security Admission Baseline Enforcement",
+  "title": "Pod Security Admission Baseline Enforcement",
   "description": "Enforce baseline Pod Security Admission (PSA) controls.",
   "details": {
   "intro": {

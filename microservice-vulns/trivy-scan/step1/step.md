@@ -8,18 +8,16 @@ Scan a vulnerable container image using the pre-installed Trivy scanner and iden
 2. Scan type: Container image vulnerability assessment 
 3. Output format: JSON report saved to `/root/trivy-report.json`
 
-## Solution
-
 <details>
-<summary>Step-by-Step Solution</summary>
+<summary>Solution</summary>
 
-1. Perform vulnerability scan:
+1. ** Perform vulnerability scan: **
 ```bash
 trivy image --severity HIGH,CRITICAL -f json -o /root/trivy-report.json nginx:1.16.0
-```{{EXEC}}
+```{{exec}}
 
-2. View scan results:
+2. ** View scan results: **
 ```bash
 jq . /root/trivy-report.json | less
-```{{EXEC}}
+```{{exec}}
 </details>
