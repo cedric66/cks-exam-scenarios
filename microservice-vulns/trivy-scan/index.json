@@ -1,5 +1,5 @@
 {
-  "title": "[Minimizing Microservice Vulnerabilities] Trivy Vulnerability Scanning",
+  "title": "Trivy Vulnerability Scanning",
   "description": "Identify and analyze container image vulnerabilities using Trivy scanner",
   "details": {
     "intro": {
