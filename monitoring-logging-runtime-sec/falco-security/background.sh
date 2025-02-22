@@ -25,8 +25,6 @@ spec:
       labels:
         app: zany-smile
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: node01
       containers:
       - name: zany-smile
         image: alpine:3.14
@@ -51,8 +49,6 @@ spec:
       labels:
         app: monstrous-kraken
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: node01
       containers:
       - name: monstrous-kraken
         image: ubuntu
@@ -87,8 +83,6 @@ spec:
       labels:
         app: starry-shadow
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: node01
       containers:
       - command:
         - sleep
@@ -119,8 +113,6 @@ spec:
       labels:
         app: firedrake-champion
     spec:
-      nodeSelector:
-        kubernetes.io/hostname: node01
       containers:
       - image: nginx
         name: nginx
