@@ -4,7 +4,7 @@
   curl -fsSL https://falco.org/repo/falcosecurity-packages.asc | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg && \
   echo "deb [signed-by=/usr/share/keyrings/falco-archive-keyring.gpg] https://download.falco.org/packages/deb stable main" | sudo tee /etc/apt/sources.list.d/falcosecurity.list >/dev/null && \
   sudo apt-get update -qqy && \
-  sudo apt-get install -yqq --no-install-recommends dkms make linux-headers-\$(uname -r) falco
+  sudo apt-get install -yqq --no-install-recommends dkms make linux-headers-$(uname -r) falco
 
 kubectl create ns falco-test
 
