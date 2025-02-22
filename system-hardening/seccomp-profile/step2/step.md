@@ -11,15 +11,14 @@ Of course, you need to ensure that the Pod scheduled in the respective nodes, wh
 * Get the worker node to be used as node selector to schedule the pod: `kubectl get node --show-labels`
 
 * Create the Pod manifest using the seccomp profile:
-```yaml
+```bash
+kubectl apply -f - <<EOF
 apiVersion: v1
 kind: Pod
 metadata:
   name: seccomp-pod
   namespace: seccomp
 spec:
-  nodeSelector:
-    kubernetes.io/hostname: <node-name>
   securityContext:
     seccompProfile:
       type: Localhost
@@ -28,11 +27,8 @@ spec:
   - name: secure-container
     image: alpine/curl:3.14
     command: ["sh", "-c", "while true; do ping -c 1 kubernetes.io; sleep 5; done"]
-```
-
-* Apply the Pod manifest: `kubectl apply -f seccomp-pod.yaml`
-
-* Go to node01 where the seccomp is located: `ssh node01`
+EOF
+```{{exec}}
 
 * Get the last related 50 lines of logs: `cat /var/log/syslog | grep "syscall" | tail -50`
 
