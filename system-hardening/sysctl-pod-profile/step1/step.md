@@ -17,7 +17,17 @@ After creating the pod, check its status.
 <details>
 <summary>Click to expand solution</summary>
 
-1. Create a pod YAML file with the required sysctl parameters:
+1. Configure the kubelet to allow the unsafe sysctl by editing its config:
+
+```bash
+# Add or update allowedUnsafeSysctls in kubelet config
+sudo sed -i 's/allowedUnsafeSysctls: \[.*\]/allowedUnsafeSysctls: ["debug.iotrace"]/' /var/lib/kubelet/config.yaml || echo 'allowedUnsafeSysctls: ["debug.iotrace"]' | sudo tee -a /var/lib/kubelet/config.yaml
+sudo systemctl restart kubelet
+```{{exec}}
+
+Wait 60 seconds for the kubelet to restart (check with `systemctl status kubelet`)
+
+2. Create a pod YAML file with the required sysctl parameters:
 
 ```bash
 kubectl apply -f - <<EOF
@@ -36,12 +46,6 @@ spec:
   - name: nginx
     image: nginx:1.23.1
 EOF
-```{{exec}}
-
-2. Apply the pod configuration:
-
-```bash
-kubectl apply -f sysctl-pod.yaml
 ```{{exec}}
 
 3. Verify the pod status:

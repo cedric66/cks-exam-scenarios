@@ -1,5 +1,5 @@
 {
-    "title": "[Monitoring, Logging, and Runtime Security] Falco Security",
+    "title": "Falco Security",
     "description": "Strengthen your understanding of Falco by detecting and mitigating potential security threats in a Kubernetes environment.",
     "details": {
     "intro": {
@@ -19,7 +19,7 @@
     }
     },
     "backend": {
-      "imageid": "kubernetes-kubeadm-2nodes"
+      "imageid": "kubernetes-kubeadm-1node"
     }
   }
   

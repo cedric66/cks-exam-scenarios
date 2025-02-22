@@ -1,13 +1,10 @@
 #!/bin/bash
 
-# Set up Keys and Install Falco on node01
-ssh -t node01 << EOF
-  curl -fsSL https://falco.org/repo/falcosecurity-packages.asc | sudo gpg --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg && \
-  echo "deb [signed-by=/usr/share/keyrings/falco-archive-keyring.gpg] https://download.falco.org/packages/deb stable main" | sudo tee -a /etc/apt/sources.list.d/falcosecurity.list && \
-  sudo apt-get update -y && \
-  sudo apt install -y dkms make linux-headers-\$(uname -r) && \
-  sudo apt-get install -y falco
-EOF
+# Set up Keys and Install Falco
+  curl -fsSL https://falco.org/repo/falcosecurity-packages.asc | sudo gpg --batch --yes --dearmor -o /usr/share/keyrings/falco-archive-keyring.gpg && \
+  echo "deb [signed-by=/usr/share/keyrings/falco-archive-keyring.gpg] https://download.falco.org/packages/deb stable main" | sudo tee /etc/apt/sources.list.d/falcosecurity.list >/dev/null && \
+  sudo apt-get update -qqy && \
+  sudo apt-get install -yqq --no-install-recommends dkms make linux-headers-\$(uname -r) falco
 
 kubectl create ns falco-test
 
