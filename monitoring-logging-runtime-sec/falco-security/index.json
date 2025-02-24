@@ -1,7 +1,7 @@
 {
-    "title": "Falco Security",
-    "description": "Strengthen your understanding of Falco by detecting and mitigating potential security threats in a Kubernetes environment.",
-    "details": {
+  "title": "Falco Security",
+  "description": "Strengthen your understanding of Falco by detecting and mitigating potential security threats in a Kubernetes environment.",
+  "details": {
     "intro": {
       "text": "intro.md",
       "background": "background.sh",
@@ -17,9 +17,11 @@
     "finish": {
       "text": "finish.md"
     }
-    },
-    "backend": {
-      "imageid": "kubernetes-kubeadm-1node"
-    }
+  },
+  "interface": {
+    "layout": "ide"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
   }
-  
+}

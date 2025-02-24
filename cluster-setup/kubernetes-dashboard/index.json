@@ -1,5 +1,5 @@
 {
-  "title": "[Cluster Setup] Kubernetes Dashboard",
+  "title": "Kubernetes Dashboard",
   "description": "Harden the Kubernetes Dashboard by restricting its configuration using command-line arguments.",
   "details": {
   "intro": {
@@ -17,6 +17,9 @@
   "finish": {
     "text": "finish.md"
   }
+  },
+  "interface": {
+    "layout": "ide"
   },
   "backend": {
     "imageid": "kubernetes-kubeadm-1node"

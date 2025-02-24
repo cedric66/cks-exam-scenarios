@@ -1,5 +1,5 @@
 {
-  "title": "[Cluster Hardening] Provision a User with Certificate",
+  "title": "Provision a User with Certificate",
   "description": "Create certificate pairs for a user and add them to a Kubernetes cluster context.",
   "details": {
   "intro": {
@@ -15,6 +15,9 @@
   "finish": {
     "text": "finish.md"
   }
+  },
+  "interface": {
+    "layout": "ide"
   },
   "backend": {
     "imageid": "kubernetes-kubeadm-1node"

@@ -6,16 +6,19 @@
       "text": "intro.md",
       "background": "background.sh"
     },  
-  "steps": [
-    {
-      "title": "Create Pod with Sysctl Parameters",
-      "text": "step1/step.md",
-      "verify": "step1/verify.sh"
+    "steps": [
+      {
+        "title": "Create Pod with Sysctl Parameters",
+        "text": "step1/step.md",
+        "verify": "step1/verify.sh"
+      }
+    ],
+    "finish": {
+      "text": "finish.md"
     }
-  ],
-  "finish": {
-    "text": "finish.md"
-  }
+  },
+  "interface": {
+    "layout": "ide"
   },
   "backend": {
     "imageid": "kubernetes-kubeadm-1node"

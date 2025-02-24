@@ -15,6 +15,9 @@
       }
     ]
   },
+  "interface": {
+    "layout": "ide"
+  },
   "backend": {
     "imageid": "kubernetes-kubeadm-1node"
   }

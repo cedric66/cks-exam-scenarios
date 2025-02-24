@@ -1,5 +1,5 @@
 {
-  "title": "[Cluster Setup] Network Policies",
+  "title": "Network Policies",
   "description": "Enforce network policies for secure pod communication.",
   "details": {
   "intro": {
@@ -22,6 +22,9 @@
   "finish": {
     "text": "finish.md"
   }
+  },
+  "interface": {
+    "layout": "ide"
   },
   "backend": {
     "imageid": "kubernetes-kubeadm-1node"

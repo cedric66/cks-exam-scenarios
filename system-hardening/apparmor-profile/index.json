@@ -1,7 +1,7 @@
 {
-    "title": "AppArmor",
-    "description": "Use AppArmor to enforce security policies on containers in a kubernetes environment.",
-    "details": {
+  "title": "AppArmor",
+  "description": "Use AppArmor to enforce security policies on containers in a kubernetes environment.",
+  "details": {
     "intro": {
       "text": "intro.md",
       "background": "background.sh"
@@ -26,8 +26,11 @@
     "finish": {
       "text": "finish.md"
     }
-    },
-    "backend": {
-      "imageid": "kubernetes-kubeadm-1node"
-    }
+  },
+  "interface": {
+    "layout": "ide"
+  },
+  "backend": {
+    "imageid": "kubernetes-kubeadm-1node"
   }
+}
