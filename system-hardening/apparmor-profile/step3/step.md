@@ -1,5 +1,3 @@
-# Step 4: Restrict Linux Capabilities
-
 In this step, we'll configure capability restrictions in our AppArmor profile to limit what privileged operations the container can perform.
 
 1. Edit your AppArmor profile (usually located in /etc/apparmor.d/)

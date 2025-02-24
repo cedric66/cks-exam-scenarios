@@ -1,5 +1,3 @@
-# Objective 1: Deny All Write Operations
-
 Your first objective is to ensure that a container is secured by denying all write operations. The AppArmor profile is provided below. Install the profile and enable it in the master node as `deny-write-profile`.
 
 ```
