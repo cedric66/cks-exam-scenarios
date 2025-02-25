@@ -12,6 +12,11 @@
         "title": "Monitor Falco Alerts and Mitigate the Threats",
         "text": "step1/step.md",
         "verify": "step1/verify.sh"
+      },
+      {
+        "title": "Customize Falco Output Fields",
+        "text": "step2/step.md",
+        "verify": "step2/verify.sh"
       }
     ],
     "finish": {
