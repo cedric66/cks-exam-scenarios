@@ -1,14 +1,12 @@
 # Step 2: Apply the Seccomp Profile to a Pod
 
-Create a Pod named `seccomp-pod` in the namespace `seccomp`. Use `alpine/curl:3.14` as the container image. Add a command to the container to do a single `ping` to `kubernetes.io` indefinitely and add delay `5s`. Apply the seccomp profile to the Pod.
+Create a Pod named `seccomp-pod` in the namespace `seccomp` using `alpine/curl:3.14` as the container image. Add a command to the container to do a single `ping` to `kubernetes.io` indefinitely and add delay `5s`. Apply the seccomp profile `seccomp-audit.json` to the pod.
 
-Of course, you need to ensure that the Pod scheduled in the respective nodes, which is having seccomp installed there. Get the last 50 lines of related logs from `/var/log/syslog` and save to `/opt/seccomp/answer` (save the answer in the controlplane or the default terminal session)
+Get the last 50 lines of related logs from `/var/log/syslog` and save to `/opt/seccomp/answer` (save the answer in the controlplane or the default terminal session)
 
 
 <details>
   <summary>Solution</summary>
-
-* Get the worker node to be used as node selector to schedule the pod: `kubectl get node --show-labels`
 
 * Create the Pod manifest using the seccomp profile:
 ```bash
@@ -30,7 +28,7 @@ spec:
 EOF
 ```{{exec}}
 
-* Get the last related 50 lines of logs: `cat /var/log/syslog | grep "syscall" | tail -50`
+* Get the last related 50 lines of logs: `grep syscall /var/log/syslog | grep "syscall" | tail -50`
 
 * Copy and save the logs to `/opt/seccomp/answer`
 

@@ -13,8 +13,6 @@ Here is the seccomp profile. SSH to the respective node.
 <details>
   <summary>Solution</summary>
 
-* SSH to the worker node: `ssh node01`
-
 * Copy the profile as `seccomp-audit.json` to the Kubernetes worker node.
 ```bash
 sudo mkdir -p /var/lib/kubelet/seccomp
