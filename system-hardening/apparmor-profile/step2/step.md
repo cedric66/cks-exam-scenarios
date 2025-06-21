@@ -1,4 +1,4 @@
-Create an AppArmor profile that controls network access and apply it to a Kubernetes pod with the following configuration:
+Create an AppArmor profile with name `restrict-network-profile` that controls network access and apply it to a Kubernetes pod with the following configuration:
 
 ```
 #include <tunables/global>
