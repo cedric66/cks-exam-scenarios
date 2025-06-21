@@ -1,6 +1,6 @@
 #!/bin/bash
 
-PROFILE_PATH="/etc/apparmor.d/your_profile"
+PROFILE_PATH="/etc/apparmor.d/restrict-network-profile"
 
 # Check if profile exists
 if [ ! -f "$PROFILE_PATH" ]; then
