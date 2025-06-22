@@ -55,7 +55,7 @@ kubectl get pod sysctl-pod
 4. Check the sysctl parameters inside the pod:
 
 ```bash
-kubectl exec sysctl-pod -- sysctl net.core.somaxconn
+kubectl exec sysctl-pod -- apt-get update && apt-get install -y procps; sysctl net.core.somaxconn
 ```{{exec}}
 
 </details>

@@ -20,7 +20,7 @@ spec:
   securityContext:
     seccompProfile:
       type: Localhost
-      localhostProfile: seccomp-audit.json
+      localhostProfile: profiles/seccomp-audit.json
   containers:
   - name: secure-container
     image: alpine/curl:3.14
@@ -28,9 +28,7 @@ spec:
 EOF
 ```{{exec}}
 
-* Get the last related 50 lines of logs: `grep syscall /var/log/syslog | grep "syscall" | tail -50`
-
-* Copy and save the logs to `/opt/seccomp/answer`
+* Get the last related 50 lines of logs: `grep syscall /var/log/syslog | tail -50 > /opt/seccomp/answer`
 
 * Aware that the syscall number are changing. When you run an infinite loop with sh, every iteration of the loop will execute the ping command and then sleep for 5 seconds. This activity will generate syscalls logged by seccomp.
 
