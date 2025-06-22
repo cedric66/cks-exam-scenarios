@@ -5,6 +5,8 @@ Create an AppArmor profile that controls network access and apply it to a Kubern
 
 profile restrict-network {
    #include <abstractions/base>
+   /bin/sleep ix,
+   /bin/ping ix,
 
    # Block IPv4 and IPv6 networking
    deny network inet,
@@ -34,6 +36,8 @@ sudo tee /etc/apparmor.d/restrict-network-profile <<EOF
 
 profile restrict-network {
   #include <abstractions/base>
+  /bin/sleep ix,
+  /bin/ping ix,
 
   # Block IPv4 and IPv6 networking
   deny network inet,
